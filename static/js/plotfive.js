@@ -1,4 +1,10 @@
 // Bar graph for the top 5 cancer incidence
+var data2 = data1;
+//console.log(data2)
+var State = data2.State[0];
+console.log(State)
+
+
 var trace1 = {
   x: data.map(row =>row.State),
   y: data.map(row =>row.Breast_incd),
