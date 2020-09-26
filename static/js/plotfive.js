@@ -1,8 +1,8 @@
 // Bar graph for the top 5 cancer incidence
-var data2 = data1;
-//console.log(data2)
-var State = data2.State[0];
-console.log(State)
+var data = data1;
+// //console.log(data2)
+// var State = data2.State[0];
+// console.log(State)
 
 
 var trace1 = {
