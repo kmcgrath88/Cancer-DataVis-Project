@@ -1,4 +1,4 @@
-var data = [
+var data1 = [
 {
    "State": "AL",
    "State_name": "Alabama",
