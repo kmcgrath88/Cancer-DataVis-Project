@@ -2,6 +2,7 @@
     "0": {
         "State_code": "USA",
         "State": "United States",
+        "all_cancers": 1441603,
         " FIPS": 0,
         "bladder_count": 73067,
         "brain_count": 22328,
@@ -26,6 +27,7 @@
     "1": {
         "State_code": "AL",
         "State": "Alabama",
+        "all_cancers": 23374,
         " FIPS": 1000,
         "bladder_count": 1076,
         "brain_count": 342,
@@ -50,6 +52,7 @@
     "2": {
         "State_code": "AK",
         "State": "Alaska",
+        "all_cancers": 2426,
         " FIPS": 2900,
         "bladder_count": 144,
         "brain_count": 51,
@@ -74,6 +77,7 @@
     "3": {
         "State_code": "AZ",
         "State": "Arizona",
+        "all_cancers": 27309,
         " FIPS": 4000,
         "bladder_count": 1566,
         "brain_count": 432,
@@ -98,6 +102,7 @@
     "4": {
         "State_code": "AR",
         "State": "Arkansas",
+        "all_cancers": 14996,
         " FIPS": 5000,
         "bladder_count": 667,
         "brain_count": 210,
@@ -122,6 +127,7 @@
     "5": {
         "State_code": "CA",
         "State": "California",
+        "all_cancers": 146231,
         " FIPS": 6000,
         "bladder_count": 6696,
         "brain_count": 2377,
@@ -146,6 +152,7 @@
     "6": {
         "State_code": "CO",
         "State": "Colorado",
+        "all_cancers": 19795,
         " FIPS": 8000,
         "bladder_count": 980,
         "brain_count": 384,
@@ -170,6 +177,7 @@
     "7": {
         "State_code": "CT",
         "State": "Connecticut",
+        "all_cancers": 18408,
         " FIPS": 9000,
         "bladder_count": 1156,
         "brain_count": 300,
@@ -194,6 +202,7 @@
     "8": {
         "State_code": "DE",
         "State": "Delaware",
+        "all_cancers": 5258,
         " FIPS": 10000,
         "bladder_count": 300,
         "brain_count": 58,
@@ -218,6 +227,7 @@
     "10": {
         "State_code": "FL",
         "State": "Florida",
+        "all_cancers": 98396,
         " FIPS": 12000,
         "bladder_count": 5264,
         "brain_count": 1541,
@@ -242,6 +252,7 @@
     "11": {
         "State_code": "GA",
         "State": "Georgia",
+        "all_cancers": 43668,
         " FIPS": 13000,
         "bladder_count": 1851,
         "brain_count": 643,
@@ -266,6 +277,7 @@
     "12": {
         "State_code": "HI",
         "State": "Hawaii",
+        "all_cancers": 6371,
         " FIPS": 15000,
         "bladder_count": 264,
         "brain_count": 65,
@@ -290,6 +302,7 @@
     "13": {
         "State_code": "ID",
         "State": "Idaho",
+        "all_cancers": 7196,
         " FIPS": 16000,
         "bladder_count": 379,
         "brain_count": 155,
@@ -314,6 +327,7 @@
     "14": {
         "State_code": "IL",
         "State": "Illinois",
+        "all_cancers": 60936,
         " FIPS": 17000,
         "bladder_count": 3179,
         "brain_count": 896,
@@ -338,6 +352,7 @@
     "15": {
         "State_code": "IN",
         "State": "Indiana",
+        "all_cancers": 30114,
         " FIPS": 18000,
         "bladder_count": 1599,
         "brain_count": 438,
@@ -362,6 +377,7 @@
     "16": {
         "State_code": "IA",
         "State": "Iowa",
+        "all_cancers": 15794,
         " FIPS": 19000,
         "bladder_count": 851,
         "brain_count": 235,
@@ -386,6 +402,7 @@
     "17": {
         "State_code": "KS",
         "State": "Kansas",
+        "all_cancers": 13261,
         " FIPS": 20000,
         "bladder_count": 659,
         "brain_count": 200,
@@ -410,6 +427,7 @@
     "18": {
         "State_code": "KY",
         "State": "Kentucky",
+        "all_cancers": 23765,
         " FIPS": 21000,
         "bladder_count": 1137,
         "brain_count": 365,
@@ -434,6 +452,7 @@
     "19": {
         "State_code": "LA",
         "State": "Louisiana",
+        "all_cancers": 22090,
         " FIPS": 22000,
         "bladder_count": 910,
         "brain_count": 304,
@@ -458,6 +477,7 @@
     "20": {
         "State_code": "ME",
         "State": "Maine",
+        "all_cancers": 7653,
         " FIPS": 23000,
         "bladder_count": 498,
         "brain_count": 125,
@@ -482,6 +502,7 @@
     "21": {
         "State_code": "MD",
         "State": "Maryland",
+        "all_cancers": 27374,
         " FIPS": 24000,
         "bladder_count": 1472,
         "brain_count": 363,
@@ -506,6 +527,7 @@
     "22": {
         "State_code": "MA",
         "State": "Massachusetts",
+        "all_cancers": 32874,
         " FIPS": 25000,
         "bladder_count": 1903,
         "brain_count": 518,
@@ -530,6 +552,7 @@
     "23": {
         "State_code": "MI",
         "State": "Michigan",
+        "all_cancers": 46801,
         " FIPS": 26000,
         "bladder_count": 2572,
         "brain_count": 703,
@@ -554,6 +577,7 @@
     "24": {
         "State_code": "MN",
         "State": "Minnesota",
+        "all_cancers": 26595,
         " FIPS": 27000,
         "bladder_count": 1402,
         "brain_count": 449,
@@ -578,6 +602,7 @@
     "25": {
         "State_code": "MS",
         "State": "Mississippi",
+        "all_cancers": 14037,
         " FIPS": 28000,
         "bladder_count": 563,
         "brain_count": 165,
@@ -602,6 +627,7 @@
     "26": {
         "State_code": "MO",
         "State": "Missouri",
+        "all_cancers": 29104,
         " FIPS": 29000,
         "bladder_count": 1454,
         "brain_count": 446,
@@ -626,6 +652,7 @@
     "27": {
         "State_code": "MT",
         "State": "Montana",
+        "all_cancers": 5170,
         " FIPS": 30000,
         "bladder_count": 303,
         "brain_count": 89,
@@ -650,6 +677,7 @@
     "28": {
         "State_code": "NE",
         "State": "Nebraska",
+        "all_cancers": 8689,
         " FIPS": 31000,
         "bladder_count": 464,
         "brain_count": 136,
@@ -674,6 +702,7 @@
     "29": {
         "State_code": "NV",
         "State": "Nevada",
+        "all_cancers": 10132,
         " FIPS": 32000,
         "bladder_count": 589,
         "brain_count": 194,
@@ -698,6 +727,7 @@
     "30": {
         "State_code": "NH",
         "State": "New Hampshire",
+        "all_cancers": 7075,
         " FIPS": 33000,
         "bladder_count": 444,
         "brain_count": 107,
@@ -722,6 +752,7 @@
     "31": {
         "State_code": "NJ",
         "State": "New Jersey",
+        "all_cancers": 45081,
         " FIPS": 34000,
         "bladder_count": 2542,
         "brain_count": 646,
@@ -746,6 +777,7 @@
     "32": {
         "State_code": "NM",
         "State": "New Mexico",
+        "all_cancers": 8005,
         " FIPS": 35000,
         "bladder_count": 381,
         "brain_count": 130,
@@ -770,6 +802,7 @@
     "33": {
         "State_code": "NY",
         "State": "New York",
+        "all_cancers": 98095,
         " FIPS": 36000,
         "bladder_count": 5331,
         "brain_count": 1412,
@@ -794,6 +827,7 @@
     "34": {
         "State_code": "NC",
         "State": "North Carolina",
+        "all_cancers": 48141,
         " FIPS": 37000,
         "bladder_count": 2232,
         "brain_count": 711,
@@ -818,6 +852,7 @@
     "35": {
         "State_code": "ND",
         "State": "North Dakota",
+        "all_cancers": 3337,
         " FIPS": 38000,
         "bladder_count": 145,
         "brain_count": 46,
@@ -842,6 +877,7 @@
     "36": {
         "State_code": "OH",
         "State": "Ohio",
+        "all_cancers": 58304,
         " FIPS": 39000,
         "bladder_count": 3107,
         "brain_count": 885,
@@ -866,6 +902,7 @@
     "37": {
         "State_code": "OK",
         "State": "Oklahoma",
+        "all_cancers": 17498,
         " FIPS": 40000,
         "bladder_count": 873,
         "brain_count": 280,
@@ -890,6 +927,7 @@
     "38": {
         "State_code": "OR",
         "State": "Oregon",
+        "all_cancers": 17756,
         " FIPS": 41000,
         "bladder_count": 1014,
         "brain_count": 300,
@@ -914,6 +952,7 @@
     "39": {
         "State_code": "PA",
         "State": "Pennsylvania",
+        "all_cancers": 69943,
         " FIPS": 42000,
         "bladder_count": 4051,
         "brain_count": 1028,
@@ -938,6 +977,7 @@
     "40": {
         "State_code": "RI",
         "State": "Rhode Island",
+        "all_cancers": 5273,
         " FIPS": 44000,
         "bladder_count": 316,
         "brain_count": 81,
@@ -962,6 +1002,7 @@
     "41": {
         "State_code": "SC",
         "State": "South Carolina",
+        "all_cancers": 24087,
         " FIPS": 45000,
         "bladder_count": 1137,
         "brain_count": 359,
@@ -986,6 +1027,7 @@
     "42": {
         "State_code": "SD",
         "State": "South Dakota",
+        "all_cancers": 3917,
         " FIPS": 46000,
         "bladder_count": 197,
         "brain_count": 55,
@@ -1010,6 +1052,7 @@
     "43": {
         "State_code": "TN",
         "State": "Tennessee",
+        "all_cancers": 32190,
         " FIPS": 47000,
         "bladder_count": 1527,
         "brain_count": 447,
@@ -1034,6 +1077,7 @@
     "44": {
         "State_code": "TX",
         "State": "Texas",
+        "all_cancers": 93928,
         " FIPS": 48000,
         "bladder_count": 3674,
         "brain_count": 1668,
@@ -1058,6 +1102,7 @@
     "45": {
         "State_code": "UT",
         "State": "Utah",
+        "all_cancers": 9149,
         " FIPS": 49000,
         "bladder_count": 408,
         "brain_count": 193,
@@ -1082,6 +1127,7 @@
     "46": {
         "State_code": "VT",
         "State": "Vermont",
+        "all_cancers": 3228,
         " FIPS": 50000,
         "bladder_count": 176,
         "brain_count": 41,
@@ -1106,6 +1152,7 @@
     "47": {
         "State_code": "VA",
         "State": "Virginia",
+        "all_cancers": 34379,
         " FIPS": 51000,
         "bladder_count": 1642,
         "brain_count": 496,
@@ -1130,6 +1177,7 @@
     "48": {
         "State_code": "WA",
         "State": "Washington",
+        "all_cancers": 31162,
         " FIPS": 53000,
         "bladder_count": 1695,
         "brain_count": 597,
@@ -1154,6 +1202,7 @@
     "49": {
         "State_code": "WV",
         "State": "West Virginia",
+        "all_cancers": 10305,
         " FIPS": 54000,
         "bladder_count": 525,
         "brain_count": 156,
@@ -1178,6 +1227,7 @@
     "50": {
         "State_code": "WI",
         "State": "Wisconsin",
+        "all_cancers": 28346,
         " FIPS": 55000,
         "bladder_count": 1533,
         "brain_count": 439,
@@ -1202,6 +1252,7 @@
     "51": {
         "State_code": "WY",
         "State": "Wyoming",
+        "all_cancers": 2307,
         " FIPS": 56000,
         "bladder_count": 144,
         "brain_count": 45,
