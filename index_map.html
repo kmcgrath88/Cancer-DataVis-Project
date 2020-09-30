@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Basic Map</title>
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+
+  <!-- Our CSS--> 
+  <link rel="stylesheet" type="text/css" href="static/js/style.css">
+</head>
+
+<body>
+  <!-- The div where we will inject our map -->
+  <div id="map"></div>
+
+  <!--Bar graph-->
+  <div class="col-md-5">
+    <div id="bar"></div>
+  </div>
+
+  <!--Bubble graph-->
+  <div class="col-md-5">
+    <div id="bubble"></div>
+  </div>
+
+<!-- API key -->
+<script type="text/javascript" src="static/js/config.js"></script>
+
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
+
+<!-- D3 CDN -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- JS -->
+  <script type="text/javascript" src="static/js/logic.js"></script>
+  <script type="text/javascript" src="Data/US_cancer_state.geojson"></script>
+  
+  <script type="text/javascript" src="Data/cancer_incidence_revised.json"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script> -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  
+  
+</body>
+
+</html>
