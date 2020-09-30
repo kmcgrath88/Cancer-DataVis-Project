@@ -14,8 +14,9 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-// Use this link to get the geojson data.
-var link = "data/gz_2010_us_040_00_20m.json";
+// get the geojson data.
+var link = "data/US_cancer_state.geojson";
+
 
 // Grabbing our GeoJSON data..
 d3.json(link, function(data) {
@@ -39,10 +40,10 @@ d3.json(link, function(data) {
         },
         // When a feature (state) is clicked, it is enlarged to fit the screen
         click: function(event) {
-          myMap.fitBounds(event.target.getBounds());
+          //myMap.fitBounds(event.target.getBounds());
         }
       });
-      layer.bindPopup("<h1>" + feature.properties.NAME + "</h1>")
+      layer.bindPopup("<h1>" + feature.properties.NAME + "</h1> <hr> <h3> Cancer Incidence: " + feature.properties.all_cancers + "</h3>" )
     }
   }).addTo(myMap);
 });
