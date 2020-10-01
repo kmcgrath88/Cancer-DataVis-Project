@@ -18,6 +18,39 @@
   <!-- The div where we will inject our map -->
   <div id="map"></div>
 
+
+  <!--Bar graph-->
+  <!-- <div class="col-md-5">
+    <div id="bar"></div>
+  </div> -->
+  <div class = "col-md-6" style="position: relative; height:50vh; width:50vw">
+  <canvas id="bar"></canvas>
+</div>
+
+  <!--Bubble graph-->
+  <div class="col-md-6" style="position: relative; height:50vh; width:50vw">
+    <div id="bubble"></div>
+  </div>
+
+  <canvas id="bubble"></canvas>
+
+  <!-- Doughnut graph -->
+  <div class="col-md-6" style="position: relative; height:50vh; width:50vw">
+  <canvas id="doughnut"></canvas>
+</div>
+
+<!-- Radar graph -->
+<div class="col-md-6" style="position: relative; height:50vh; width:50vw">
+  <canvas id="radar"></canvas>
+</div>
+
+<!-- Polar-area graph -->
+<div class="col-md-6" style="position: relative; height:50vh; width:50vw">
+  <canvas id="polar"></canvas>
+</div>
+
+
+
 <!-- API key -->
 <script type="text/javascript" src="static/js/config.js"></script>
 
@@ -32,6 +65,19 @@
 
   <!-- JS -->
   <script type="text/javascript" src="static/js/logic.js"></script>
+
+  <script type="text/javascript" src="Data/US_cancer_state.geojson"></script>
+  
+  <script type="text/javascript" src="Data/cancer_incidence_revised.json"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script> -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!-- <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script> -->
+  
+  
+  
+
 </body>
 
 </html>
