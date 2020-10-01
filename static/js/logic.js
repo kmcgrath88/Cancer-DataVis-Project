@@ -42,67 +42,189 @@ function updateDash(state) {
 
 
     //TESTING
-    var top5 = Object.entries(stateValues).sort((a, b) => b[1] - a[1]).slice(5, 10)
+    var top5 = Object.entries(stateValues).sort((a, b) => b[1] - a[1]).slice(5, 10);
     //var top5 = stateValues.sort((a,b)=> b-a).slice(5,10)
-    console.log(top5)
+    console.log(top5);
 
-    var top5Labels = []
-    var top5Values = []
+    var top5Labels = [];
+    var top5Values = [];
     for (i = 0; i < top5.length; i++) {
-      top5Labels[i] = top5[i][0]
+      top5Labels[i] = top5[i][0].charAt(0).toUpperCase() + top5[i][0].slice(1)
       top5Values[i] = top5[i][1]
     }
-    console.log(top5Labels)
-    console.log(top5Values)
+    console.log(top5Labels);
+    console.log(top5Values);
 
 
-    // Bar graph trace.
-    var barTrace = [{
-      x: top5Labels,
-      y: top5Values,
-      //text:
-      type: "bar",
-      marker: {
-        color: 'rgba(18,162,169,.75)',
+    // // Bar graph trace.
+    // var barTrace = [{
+    //   x: top5Labels,
+    //   y: top5Values,
+    //   //text:
+    //   type: "bar",
+    //   marker: {
+    //     color: 'rgba(18,162,169,.75)',
+    //   }
+    // }];
+
+    // Plotly.newPlot("bar", barTrace);
+
+    // Testing Bar Graph through chart.js
+    var bar = document.getElementById('bar').getContext('2d');
+    var barGraph = new Chart(bar, {
+      // The type of chart we want to create
+      type: 'bar',
+
+      // The data for our dataset
+      data: {
+        labels: top5Labels,
+        datasets: [{
+          label: 'Total Incidents',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: top5Values
+        }],
+
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Cancer Type'
+            }
+          }],
+          yAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Number of Incidents'
+            }
+          }]
+
+        },
+        title: {
+          display: true,
+          text: `Top 5 Cancer Incidents In ${state1[0].properties.NAME}`
+        },
+        legend: { //not working
+          display: true,
+          postion: 'bottom',
+          align: 'right'
+        }
       }
-    }];
-
-    Plotly.newPlot("bar", barTrace);
-
+    });
 
 
     // Bubble chart trace.
     var bubbleTrace = [{
-      x: top5Labels,
+      x: top5Labels, // what should this be??
       y: top5Values,
       mode: "markers",
       marker: {
-      //     size: top5Values,
-      //     //color: top5Labels,
-      //     colorscale: 'Viridis',
+        //size: top5Values,
+        //color: top5Values,
+        //colorscale: 'Viridis',
       },
-      //text: otuLabels,
-  }];
+      text: top5Labels,
+    }];
 
-  // Bubble layout.
-  var bubbleLayout = {
+    // Bubble layout.
+    var bubbleLayout = {
       height: 600,
       title: `Top 5 Cancers in ${state1[0].properties.NAME}`,
-      xaxis: { title: "<b>OTU ID</b>" },
+      xaxis: { title: "<b>What goes here?</b>" },
       yaxis: {
-          title: "<b>Sample Values</b>",
+        title: "<b>Total Incidents</b>",
       },
-  };
+    };
 
-  // Creating bubble chart.
-  Plotly.newPlot("bubble", bubbleTrace, bubbleLayout);
+    // Creating bubble chart.
+    Plotly.newPlot("bubble", bubbleTrace, bubbleLayout);
 
-  })
+    //Testing bubble chart through Chart.js
+    // var bubble = document.getElementById('bubble').getContext('2d');
+    // var myBubbleChart = new Chart(bubble, {
+    //   type: 'bubble',
+    //   data: {
+    //     x: top5Labels,
+    //     y: top5Values
+    //   }
+    //options: options
+    // });
+
+    var doughnut = document.getElementById("doughnut");
+    var doughnutChart = new Chart(doughnut, {
+      type: "doughnut",
+      data: {
+        labels: top5Labels,
+        datasets: [
+          {
+            label: "Github Stars",
+            data: top5Values,
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)"
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+            ],
+            borderWidth: 1
+          }
+        ],
+      },
+      options: {
+        title: {
+          display: true,
+          text: `Top 5 Cancers Incidents In ${state1[0].properties.NAME}`
+        },
+        cutoutPercentage: 40,
+      }
+    });
+
+    var radar = document.getElementById('radar').getContext('2d');
+    var myRadarChart = new Chart(radar, {
+      type: 'radar',
+      data: {
+        labels: top5Labels,
+        datasets: [{
+          data: top5Values
+        }]
+      }
+      //options: options
+    });
+  
+
+  // Polar Area chart
+  var polar = new Chart(document.getElementById("polar"), {
+    type: 'polarArea',
+    data: {
+      labels: top5Labels,
+      datasets: [
+        {
+          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+          data: top5Values
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: `Top 5 Cancers Incidents In ${state1[0].properties.NAME}`
+      }
+    }
+  });
 
 
 
+})
 };
-
 
 
 
