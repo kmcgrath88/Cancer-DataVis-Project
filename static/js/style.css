@@ -8,12 +8,15 @@ body {
 #map,
 body,
 html {
+
   height: 80%;
+
 }
 
 h1 {
   text-align: center;
 }
+
 
 #bar,
 #doughnut,
@@ -24,3 +27,4 @@ h1 {
     height: 500px;
 
 }
+
