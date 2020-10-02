@@ -8,23 +8,27 @@ body {
 #map,
 body,
 html {
-
   height: 80%;
-
 }
 
 h1 {
   text-align: center;
 }
 
+.col-md-6 {
+  margin-bottom: 1.75cm;
+  margin-top: 1.75cm;
+  margin-right: .5cm;
+  margin-left: .5cm
+}
 
-#bar,
+
+/* #bar,
 #doughnut,
 #radar,
 #polar {
   
-    width: 320px;
-    height: 500px;
+    padding: 10 !important;
+    margin: 10;
 
-}
-
+} */
