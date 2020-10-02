@@ -2,7 +2,7 @@
 // Create a map object
 var myMap = L.map("map", {
   center: [37.09, -95.71],
-  zoom: 5
+  zoom: 4
 });
 
 // Add a tile layer
@@ -265,13 +265,43 @@ function updateDash(state) {
   })
 };
 
+// Function that will determine the color of a state based on cancer incidence
+function chooseColor(val) {
+  if (val < 10000) {
+    return "#FFE400";
+  }
+  else if (val >= 10000 && val < 20000) {
+    return "#FFB200";
+  }
+  else if (val >= 20000 && val < 30000) {
+    return "#FF8000";
+  }
+  else if (val >= 30000 && val < 40000) {
+    return "#FF6100";
+  }
+  else if (val >= 40000 && val < 60000) {
+    return "#FF2A00";
+  }
+  else {
+    return "red";
+  }
 
+}
 
 
 // Grabbing our GeoJSON data..
 d3.json(link, function (data) {
   // Creating a GeoJSON layer with the retrieved data
   L.geoJson(data, {
+    //creating style that will adjust color of state based on all_cancer incidince
+    style: function(feature) {
+      return {
+        color: "black",
+        fillColor: chooseColor (feature.properties.all_cancers),
+        fillOpacity: 0.5,
+        weight: 1.5
+      };   
+    },
     // Called on each feature
     onEachFeature: function (feature, layer) {
       layer.on({
@@ -286,12 +316,12 @@ d3.json(link, function (data) {
         mouseout: function (event) {
           layer = event.target;
           layer.setStyle({
-            fillOpacity: 0.2
+            fillOpacity: 0.5
           });
         },
         // When a feature (state) is clicked, it is enlarged to fit the screen
         click: function (event) {
-          myMap.fitBounds(event.target.getBounds());
+          //myMap.fitBounds(event.target.getBounds());
           console.log(event.target.feature.properties.NAME)
           updateDash(event.target.feature.properties.NAME)
         }
@@ -299,6 +329,27 @@ d3.json(link, function (data) {
       layer.bindPopup("<h1>" + feature.properties.NAME + "</h1> <hr> <h3> Cancer Incidence: " + feature.properties.all_cancers + "</h3>")
     }
   }).addTo(myMap);
+
+  /*Legend specific*/
+
+  var legend = L.control({ position: "bottomright" });
+
+  legend.onAdd = function(myMap) {
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML += "<h4>Cancer Incidence</h4>";
+    div.innerHTML += '<i style="background: #FFE400"></i> <10,000 <br>';
+    div.innerHTML += '<i style="background: #FFB200"></i><span>10,000 - 20,000</span><br>';
+    div.innerHTML += '<i style="background: #FF8000"></i><span>20,000 - 30,000</span><br>';
+    div.innerHTML += '<i style="background: #FF6100"></i><span>30,000 - 40,000</span><br>';
+    div.innerHTML += '<i style="background: #FF2A00"></i><span>40,000 - 60,000</span><br>';
+    div.innerHTML += '<i style="background: red"></i> <span>>60,000</span><br>';
+    
+    
+
+    return div;
+  };
+
+  legend.addTo(myMap);
 });
 
 // Initializing dashboard.
