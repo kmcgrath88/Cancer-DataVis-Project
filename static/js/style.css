@@ -4,11 +4,18 @@ body {
   margin: 0;
 }
 
+
 /* set map, body, and html to 100% of the screen size */
-#map,
+/* #map, */
 body,
 html {
   height: 80%;
+}
+
+#map{
+  height: 80%;
+  width: 80%;
+  margin-left: 3cm; /* how to align center????? */
 }
 
 h1 {
@@ -16,10 +23,12 @@ h1 {
 }
 
 .col-md-6 {
-  margin-bottom: 1.75cm;
-  margin-top: 1.75cm;
-  margin-right: .5cm;
-  margin-left: .5cm
+  /* margin-bottom: 1.75cm; */
+  margin-top: 1cm;
+  /* margin-right: .5cm; */
+  /* margin-left: .5cm */
+  /* height: 100% !important;
+  width: 100% !important; */
 }
 
 .legend {
@@ -34,6 +43,7 @@ h1 {
   margin-right: 8px;
   opacity: 0.7;
 }
+
 
 /* #bar,
 #doughnut,
