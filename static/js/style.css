@@ -16,7 +16,6 @@ html {
   height: 80%;
   width: 80%;
   margin-left: 3cm; /* how to align center????? */
-
 }
 
 h1 {
@@ -44,6 +43,7 @@ h1 {
   margin-right: 8px;
   opacity: 0.7;
 }
+
 
 /* #bar,
 #doughnut,

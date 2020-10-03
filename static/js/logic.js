@@ -1,4 +1,6 @@
+
 var barGraph = new Chart({})
+
 
 // Create a map object
 var myMap = L.map("map", {
@@ -17,12 +19,14 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(myMap);
 
 // get the geojson data.
+
 var link = "../Data/US_cancer_state.geojson";
+
 //var link = "data/cancer_incidence_revised.json"; --- not rendering map??
 
 function init() {
 
-  
+
   // Running function on first ID to create initial dashboard.
   updateDash('North Carolina');
 };
@@ -72,6 +76,7 @@ function updateDash(state) {
       allCancerLabels[i] = allCancers[i][0].charAt(0).toUpperCase() + allCancers[i][0].slice(1)
       allCancerValues[i] = allCancers[i][1]
     }
+
     
     // Bar Graph through chart.js
     // var canvas = document.getElementById('bar').getContext('2d');
@@ -79,6 +84,7 @@ function updateDash(state) {
   
     // var bar = document.getElementById('bar').getContext('2d');
     barGraph.destroy()
+
     var bar = document.getElementById('bar').getContext('2d');
     barGraph = new Chart(bar, {
       // The type of chart we want to create
@@ -120,11 +126,13 @@ function updateDash(state) {
           postion: 'bottom',
           align: 'right'
         },
+
       }     
     
     }
     );
     
+
 
     // Doughnut graph for all cancers
     var doughnut = document.getElementById("doughnut");
@@ -170,6 +178,7 @@ function updateDash(state) {
           data: top5Values
         }]
       },
+
     });
 
 
@@ -193,6 +202,34 @@ function updateDash(state) {
       }
     });
 
+
+    // Polar Area chart
+    var polar = new Chart(document.getElementById("polar"), {
+      type: 'polarArea',
+      data: {
+        labels: top5Labels,
+        datasets: [
+          {
+            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+            data: top5Values
+          }
+        ]
+      },
+      options: {
+        title: {
+          display: true,
+          text: `Top 5 Cancers Incidents In ${state1[0].properties.NAME}`
+        },
+        // layout: {
+        //   padding: {
+        //     top: 25,
+        //     bottom: 20,
+        //     left: 10,
+        //     right: 10
+        //   }
+        // }
+      }
+    });
     // Bubble chart trace.
     var bubbleTrace = [{
       //x: top5Labels, // what should this be??
