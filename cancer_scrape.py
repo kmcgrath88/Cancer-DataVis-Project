@@ -13,7 +13,7 @@ def init_browser():
 def scrape():
     browser = init_browser()
 
-    #####--NASA Mars New Site--#####
+    #####--Cancer News Site--#####
     url = "https://www.cancer.gov/news-events"
     browser.visit(url)
 
