@@ -1,4 +1,7 @@
-var barGraph = new Chart({})
+var barGraph = new Chart({});
+var doughnutChart = new Chart({});
+var radarChart = new Chart({});
+var polarChart = new Chart({});
 
 // Create a map object
 var myMap = L.map("map", {
@@ -16,13 +19,8 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: API_KEY
 }).addTo(myMap);
 
-// get the geojson data.
-// var link = "../Data/US_cancer_state.geojson";
-//var link = "data/cancer_incidence_revised.json"; --- not rendering map??
-
+// Initializing dashboard.
 function init() {
-
-  
   // Running function on first ID to create initial dashboard.
   updateDash('North Carolina');
 };
@@ -73,10 +71,6 @@ function updateDash(state) {
     }
     
     // Bar Graph through chart.js
-    // var canvas = document.getElementById('bar').getContext('2d');
-    // //canvas.clearRect(0, 0, canvas.width, canvas.height);
-  
-    // var bar = document.getElementById('bar').getContext('2d');
     barGraph.destroy()
     var bar = document.getElementById('bar').getContext('2d');
     barGraph = new Chart(bar, {
@@ -116,8 +110,8 @@ function updateDash(state) {
         },
         legend: { //not working
           display: true,
-          postion: 'bottom',
-          align: 'right'
+          postion: "right",
+          //align: 'right'
         },
       }     
     
@@ -126,8 +120,9 @@ function updateDash(state) {
     
 
     // Doughnut graph for all cancers
+    doughnutChart.destroy()
     var doughnut = document.getElementById("doughnut");
-    var doughnutChart = new Chart(doughnut, {
+    doughnutChart = new Chart(doughnut, {
       type: "doughnut",
       data: {
         labels: allCancerLabels,
@@ -160,8 +155,10 @@ function updateDash(state) {
       }
     });
 
+    //Radar Chart
+    radarChart.destroy();
     var radar = document.getElementById('radar').getContext('2d');
-    var myRadarChart = new Chart(radar, {
+    radarChart = new Chart(radar, {
       type: 'radar',
       data: {
         labels: top5Labels,
@@ -173,7 +170,8 @@ function updateDash(state) {
 
 
     // Polar Area chart
-    var polar = new Chart(document.getElementById("polar"), {
+    polarChart.destroy()
+    polarChart = new Chart(document.getElementById("polar"), {
       type: 'polarArea',
       data: {
         labels: top5Labels,
