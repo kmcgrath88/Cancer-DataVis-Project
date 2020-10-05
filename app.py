@@ -25,14 +25,15 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/cancer_app"
 mongo = PyMongo(app)
 
 #Creating app route "/" and defining function ---- this works
-@app.route("/cancer_scrape/")
+# @app.route("/cancer_scrape/")
+@app.route("/")
 @cross_origin()
 def index():
     cancer_data = mongo.db.cancer_data.find_one()
-    cancerjson = json.loads(json_util.dumps(cancer_data))
+    # cancerjson = json.loads(json_util.dumps(cancer_data))
     # print(cancerjson)
-    return jsonify(cancerjson)
-    #return render_template("index.html", cancer_data = cancer_data)
+    # return jsonify(cancerjson)
+    return render_template("index.html", cancer_data = cancer_data)
 
 # Route to get geojson data -- testing
 @app.route("/cancer_dash/", methods = ["GET"])
@@ -53,7 +54,7 @@ def index2():
 
     all_cancers2 = all_cancers.find_one()
     cancerjson = json.loads(json_util.dumps(all_cancers2))
-    #print(cancerjson)
+    # print(jsonify(cancerjson))
     return jsonify(cancerjson)
     # return render_template("index.html", all_cancers = all_cancers2)
 
@@ -62,22 +63,26 @@ def index2():
 @app.route("/scrape")
 @cross_origin()
 def scraper():
-    all_cancers = mongo.db.all_cancers
-    # Drops collection if available to remove duplicates
-    all_cancers.geojson.drop()
-    # Loading json file
-    with open("Data/US_cancer_state.geojson") as file:
-        file_data = geojson.load(file)
-    #insert data into collection
-    if isinstance(file_data, list):
-        all_cancers.insert_many(file_data)
-    else:
-        all_cancers.insert_one(file_data)
-    cancer_data  = mongo.db.cancer_data 
+    cancer_data = mongo.db.cancer_data
+
+    
+    # all_cancers = mongo.db.all_cancers
+    # # Drops collection if available to remove duplicates
+    # all_cancers.geojson.drop()
+    # # Loading json file
+    # with open("Data/US_cancer_state.geojson") as file:
+    #     file_data = geojson.load(file)
+    # #insert data into collection
+    # if isinstance(file_data, list):
+    #     all_cancers.insert_many(file_data)
+    # else:
+    #     all_cancers.insert_one(file_data)
+    # cancer_data  = mongo.db.cancer_data 
 
     cancer_data2 = cancer_scrape.scrape()
     cancer_data.update({}, cancer_data2, upsert=True)
-    
+    return redirect("/")
+
 
 
 
