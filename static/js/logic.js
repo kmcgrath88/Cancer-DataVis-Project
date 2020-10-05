@@ -29,7 +29,7 @@ function updateDash(state) {
   //d3.json("../../Data/cancer_incidence_revised.json", function (incomingData) {
   d3.request("http://127.0.0.1:5000/cancer_dash/").get(incomingData => {
     var incomingData = JSON.parse(incomingData.response)
-  
+
     //---------KEEP all below
     var allData = incomingData.features;
     console.log(allData);
@@ -44,17 +44,19 @@ function updateDash(state) {
     console.log(state1);
 
     var stateValues = state1[0].properties;
-    console.log(stateValues)
+    console.log(stateValues);
 
+    //Finding state entry.
+    var stateEntry = Object.entries(stateValues) //.sort((a, b) => b[1] - a[1])
+    console.log(stateEntry);
 
-    //TESTING
-    var test = Object.entries(stateValues).sort((a, b) => b[1] - a[1])
-    console.log(test)
-    var top5 = Object.entries(stateValues).sort((a, b) => b[1] - a[1]).slice(5, 10);
-    var allCancers = Object.entries(stateValues).sort((a, b) => b[1] - a[1]).slice(5, 24);
-    //var top5 = stateValues.sort((a,b)=> b-a).slice(5,10)
+    // Slicing and sorting cancers from greatest to least.
+    var allCancers = Object.entries(stateValues).slice(6, 24).sort((a, b) => b[1] - a[1])
+    console.log(allCancers);
+
+    // Slicing top 5 cancers from all cancers.
+    var top5 = allCancers.slice(0, 5);
     console.log(top5);
-    console.log(allCancers)
 
     var top5Labels = [];
     var top5Values = [];
@@ -69,7 +71,7 @@ function updateDash(state) {
       allCancerLabels[i] = allCancers[i][0].charAt(0).toUpperCase() + allCancers[i][0].slice(1)
       allCancerValues[i] = allCancers[i][1]
     }
-    
+
     // Bar Graph through chart.js
     barGraph.destroy()
     var bar = document.getElementById('bar').getContext('2d');
@@ -93,31 +95,37 @@ function updateDash(state) {
           xAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Cancer Type'
+              labelString: 'Cancer Type',
+              fontStyle: 'bold',
+              padding: 10
             }
           }],
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Number of Incidents'
+              labelString: 'Number of Incidents',
+              fontStyle: 'bold',
+              padding: 10
             }
           }]
 
         },
         title: {
           display: true,
-          text: `Top 5 Cancer Incidents In ${state1[0].properties.NAME}`
+          text: `Top 5 Cancer Incidents In ${state1[0].properties.NAME}`,
+          fontSize: 14,
+          fontStyle: "bold",
+          padding: 20
         },
-        legend: { //not working
-          display: true,
-          postion: "right",
-          //align: 'right'
+        legend: {
+          //display: false,
+          //position: "right",
         },
-      }     
-    
+      }
+
     }
     );
-    
+
 
     // Doughnut graph for all cancers
     doughnutChart.destroy()
@@ -137,19 +145,21 @@ function updateDash(state) {
       options: {
         plugins: {
           colorschemes: {
-            scheme: 'tableau.HueCircle19'
+            scheme: 'tableau.HueCircle19',
           }
 
         },
         responsive: true,
         title: {
           display: true,
-          text: `Cancers Incidents In ${state1[0].properties.NAME}`
+          text: `Cancers Incidents In ${state1[0].properties.NAME}`,
+          fontSize: 14,
+          fontStyle: "bold",
+          padding: 20
         },
         legend: {
           display: true,
-          postion: 'bottom',
-          // align: 'end'
+          position: 'right',
         },
         cutoutPercentage: 40,
       }
@@ -268,13 +278,13 @@ d3.request("http://127.0.0.1:5000/cancer_dash/").get(data => {
   // Creating a GeoJSON layer with the retrieved data
   L.geoJson(data, {
     //creating style that will adjust color of state based on all_cancer incidince
-    style: function(feature) {
+    style: function (feature) {
       return {
         color: "black",
-        fillColor: chooseColor (feature.properties.all_cancers),
+        fillColor: chooseColor(feature.properties.all_cancers),
         fillOpacity: 0.5,
         weight: 1.5
-      };   
+      };
     },
     // Called on each feature
     onEachFeature: function (feature, layer) {
@@ -308,7 +318,7 @@ d3.request("http://127.0.0.1:5000/cancer_dash/").get(data => {
 
   var legend = L.control({ position: "bottomright" });
 
-  legend.onAdd = function(myMap) {
+  legend.onAdd = function (myMap) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += "<h4>Cancer Incidence</h4>";
     div.innerHTML += '<i style="background: #FFE400"></i> <10,000 <br>';
@@ -317,8 +327,8 @@ d3.request("http://127.0.0.1:5000/cancer_dash/").get(data => {
     div.innerHTML += '<i style="background: #FF6100"></i><span>30,000 - 40,000</span><br>';
     div.innerHTML += '<i style="background: #FF2A00"></i><span>40,000 - 60,000</span><br>';
     div.innerHTML += '<i style="background: red"></i> <span>>60,000</span><br>';
-    
-    
+
+
 
     return div;
   };
