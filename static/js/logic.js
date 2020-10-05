@@ -171,11 +171,20 @@ function updateDash(state) {
     radarChart = new Chart(radar, {
       type: 'radar',
       data: {
-        label: top5Labels,
+        labels: top5Labels,
         datasets: [{
+          label: state1[0].properties.NAME,
+          fill: true,
+          backgroundColor: 'rgb(255, 99, 132)',
           data: top5Values
         }]
       },
+      options: {
+        title: {
+          display: true,
+          text: `Top 5 Cancers Incidences In ${state1[0].properties.NAME}`
+        },
+      }
     });
 
 
