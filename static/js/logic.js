@@ -83,7 +83,7 @@ function updateDash(state) {
       data: {
         labels: top5Labels,
         datasets: [{
-          label: 'Total Incidents',
+          label: 'Top 5 Cancer Incidences',
           backgroundColor: 'rgb(255, 99, 132)',
           borderColor: 'rgb(255, 99, 132)',
           data: top5Values
@@ -103,7 +103,7 @@ function updateDash(state) {
           yAxes: [{
             scaleLabel: {
               display: true,
-              labelString: 'Number of Incidents',
+              labelString: 'Number of Cases',
               fontStyle: 'bold',
               padding: 10
             }
@@ -112,7 +112,7 @@ function updateDash(state) {
         },
         title: {
           display: true,
-          text: `Top 5 Cancer Incidents In ${state1[0].properties.NAME}`,
+          text: `Top 5 Cancer Incidences In ${state1[0].properties.NAME}`,
           fontSize: 14,
           fontStyle: "bold",
           padding: 20
@@ -152,7 +152,7 @@ function updateDash(state) {
         responsive: true,
         title: {
           display: true,
-          text: `Cancers Incidents In ${state1[0].properties.NAME}`,
+          text: `Cancer Incidence In ${state1[0].properties.NAME}`,
           fontSize: 14,
           fontStyle: "bold",
           padding: 20
@@ -171,7 +171,7 @@ function updateDash(state) {
     radarChart = new Chart(radar, {
       type: 'radar',
       data: {
-        labels: top5Labels,
+        label: top5Labels,
         datasets: [{
           data: top5Values
         }]
@@ -195,7 +195,7 @@ function updateDash(state) {
       options: {
         title: {
           display: true,
-          text: `Top 5 Cancers Incidents In ${state1[0].properties.NAME}`
+          text: `Top 5 Cancers Incidences In ${state1[0].properties.NAME}`
         },
       }
     });
