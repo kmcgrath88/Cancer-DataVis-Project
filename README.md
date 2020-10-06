@@ -1,6 +1,6 @@
 # Cancer Incidence in America
 
-Thanks for checking out our team's repo! Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. By downloading our repo and running app.py through flask, you can view an interactive US map with a dashboard of several visualizations below. Note: You will need your own API key from [MapBox](https://www.mapbox.com/) to successfully generate the US map.
+Thanks for checking out our team's repo! Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. By downloading our repo and running app.py through flask, you can view an interactive US map with a dashboard of several visualizations below. (Note: You will need your own API key from [MapBox](https://www.mapbox.com/) to successfully generate the US map.) In addition, you can web scrape a current news article to learn more about research being conducted in the fight against cancer.
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
@@ -31,6 +31,7 @@ This project was built using the following frameworks/libraries:<br>
 ## Sources
 * https://statecancerprofiles.cancer.gov/
 * https://www.cancer.gov/research/resources/resource/130
+* https://www.cancer.gov/news-events
 * https://www.cdc.gov/cancer/uscs/dataviz/download_data.htm
 * https://wonder.cdc.gov/
 * https://eric.clst.org/tech/usgeojson/
