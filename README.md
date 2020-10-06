@@ -61,6 +61,6 @@ JavaScript, and at least one database (SQL, MongoDB, SQLite, etc.).
 
 <!--Team Members-->
 ## Team Members
-* [ Kristi McGrath ](https://github.com/kmcgrath88)
 * [ Todd Auman ](https://github.com/jtauman)
 * [ Bobby Huffstetler ](https://github.com/bhuffstetler)
+* [ Kristi McGrath ](https://github.com/kmcgrath88)
