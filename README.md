@@ -1,4 +1,4 @@
-# Cancer Incidence in America
+# Cancer Incidence In America
 
 Thanks for checking out our team's repo! Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. By downloading our repo and running app.py through flask, you can view an interactive US map with a dashboard of several visualizations below. (Note: You will need your own API key from [MapBox](https://www.mapbox.com/) to successfully generate the US map.) In addition, you can web scrape a current news article to learn more about research being conducted in the fight against cancer.
 
@@ -13,7 +13,7 @@ Thanks for checking out our team's repo! Our team retrieved data from multiple s
 
 <!--About the Project-->
 ## About the Project
- Datasets were transformed to one GeoJSON file using Pandas dataframes. Python and Flask were used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with dashboard on top cancer incidents per state. Flask was used to web scrape a current cancer news article from https://www.cancer.gov/news-events.
+ Datasets were transformed to one GeoJSON file using Pandas dataframes. Python and Flask were used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with dashboard on top cancer incidences per state. Flask was used to web scrape a current cancer news article from https://www.cancer.gov/news-events.
 
 <!--Built With-->
 ### Built With
