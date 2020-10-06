@@ -29,6 +29,10 @@ function updateDash(state) {
   //d3.json("../../Data/cancer_incidence_revised.json", function (incomingData) {
   d3.request("http://127.0.0.1:5000/cancer_dash/").get(incomingData => {
     var incomingData = JSON.parse(incomingData.response)
+  
+    d3.request("http://127.0.0.1:5000/cancer_mortality").get(incomingData => {
+      var mortalityData = JSON.parse(incomingData.response)
+   
 
     //---------KEEP all below
     var allData = incomingData.features;
@@ -256,7 +260,7 @@ function updateDash(state) {
     //options: options
     // });
 
-
+  })
 
   })
 };
