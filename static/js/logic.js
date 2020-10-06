@@ -175,7 +175,10 @@ function updateDash(state) {
         datasets: [{
           label: state1[0].properties.NAME,
           fill: true,
-          backgroundColor: 'rgb(255, 99, 132)',
+          backgroundColor: 'rgb(255, 99, 132, 0.2)',
+          borderColor: 'rgb(255, 99, 132)',
+          pointBackgroundColor: 'rgb(255, 99, 132)',
+          pointBorderColor: "#fff", 
           data: top5Values
         }]
       },
@@ -215,7 +218,8 @@ function updateDash(state) {
       y: allCancerValues,
       mode: "markers",
       marker: {
-        //size: top5Values,
+        size: allCancerValues,
+        sizeref: 80,
         //color: top5Values,
         //colorscale: 'Viridis',
       },
@@ -227,7 +231,7 @@ function updateDash(state) {
       title: `Cancers in ${state1[0].properties.NAME}`,
       xaxis: { title: "<b>What goes here?</b>" },
       yaxis: {
-        title: "<b>Total Incidents</b>",
+        title: "<b>Cancer Incidence</b>",
       },
       margin: { // not sure if this is working....
         l: 50,
