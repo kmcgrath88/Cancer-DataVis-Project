@@ -1,7 +1,19 @@
+.jumbotron {
+  background-image: url("pink-ribbon.jpg") !important; 
+  background-size: cover ; 
+}
+
+.btn{
+  background-color: rgba(245, 245, 245, 0.945);
+  color: black;
+  border-color: black;
+}
+
 /* remove default margin and padding from body */
 body {
   padding: 0;
   margin: 0;
+  background-color: rgb(192, 181, 216) ;
 }
 
 
@@ -15,22 +27,10 @@ html {
 #map{
   height: 80%;
   width: 80%;
-  margin-left: 3cm; /* how to align center????? */
-
 }
 
 h1 {
   text-align: center;
-}
-
-.col-md-6 {
-  /* margin-bottom: 1.75cm; */
-  margin-top: .5cm;
-  /* margin-right: .5cm; */
-  /* margin-left: .5cm */
-  /* height: 100% !important;
-  width: 100% !important; */
-  padding: 0
 }
 
 .legend {
@@ -46,12 +46,14 @@ h1 {
   opacity: 0.7;
 }
 
-/* #bar,
-#doughnut,
-#radar,
-#polar {
-  
-    padding: 10 !important;
-    margin: 10;
+#bar,
+#radar{
+    margin-left: 1.5%;
+    background-color: white;
+} 
 
-} */
+#doughnut,
+#polar {
+  margin-right: 1.5%;
+    background-color: white;
+}

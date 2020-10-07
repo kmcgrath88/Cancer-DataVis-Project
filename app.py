@@ -85,21 +85,6 @@ def index3():
 @cross_origin()
 def scraper():
     cancer_data = mongo.db.cancer_data
-
-
-    # all_cancers = mongo.db.all_cancers
-    # # Drops collection if available to remove duplicates
-    # all_cancers.geojson.drop()
-    # # Loading json file
-    # with open("Data/US_cancer_state.geojson") as file:
-    #     file_data = geojson.load(file)
-    # #insert data into collection
-    # if isinstance(file_data, list):
-    #     all_cancers.insert_many(file_data)
-    # else:
-    #     all_cancers.insert_one(file_data)
-    # cancer_data  = mongo.db.cancer_data 
-
     cancer_data2 = cancer_scrape.scrape()
     cancer_data.update({}, cancer_data2, upsert=True)
     return redirect("/")
