@@ -30,14 +30,14 @@ function updateDash(state) {
   d3.request("http://127.0.0.1:5000/cancer_dash/").get(incomingData => {
     var incomingData = JSON.parse(incomingData.response)
   
-    d3.request("http://127.0.0.1:5000/cancer_mortality").get(incomingData => {
-      var mortalityData = JSON.parse(incomingData.response)
-   
+    d3.request("http://127.0.0.1:5000/cancer_mortality").get(incomingMortalityData => {
+      var mortalityData = JSON.parse(incomingMortalityData.response)
+      console.log(mortalityData);
 
     //---------KEEP all below
     var allData = incomingData.features;
     console.log(allData);
-    //})};
+
 
     // Storing samples list of dictionaries to variable.
     // console.log(incomingData)
@@ -53,6 +53,14 @@ function updateDash(state) {
     //Finding state entry.
     var stateEntry = Object.entries(stateValues) //.sort((a, b) => b[1] - a[1])
     console.log(stateEntry);
+
+    //getting mortality entry for state
+    var stateMortality = mortalityData.filter(value =>
+      value.State == state);
+    console.log(stateMortality[0]);
+    console.log(stateMortality[0].breast);
+    var stateMortalityValue = stateMortality[0];
+    console.log(stateMortalityValue);
 
     // Slicing and sorting cancers from greatest to least.
     var allCancers = Object.entries(stateValues).slice(6, 24).sort((a, b) => b[1] - a[1])
@@ -75,6 +83,27 @@ function updateDash(state) {
       allCancerLabels[i] = allCancers[i][0].charAt(0).toUpperCase() + allCancers[i][0].slice(1)
       allCancerValues[i] = allCancers[i][1]
     }
+    console.log(top5Labels);
+    console.log(top5Values);
+    console.log(allCancerLabels);
+    console.log(allCancerValues);
+
+    //get mortality values that match the top5incidence labels
+    var top5MortalityValues = [];
+    for (i=0; i < top5Labels.length; i++ ) {
+      var cancerSelect = top5Labels[i].toLowerCase()
+      console.log(cancerSelect);
+      top5MortalityValues.push(stateMortalityValue[cancerSelect]);
+    }
+    console.log(top5MortalityValues);
+
+    //get mortality values that match allcancer labels
+    var allMortalityValues =[];
+    for (i=0; i < allCancerLabels.length; i++) {
+      var allCancerSelect = allCancerLabels[i].toLowerCase()
+      allMortalityValues.push(stateMortalityValue[allCancerSelect]);
+    }
+    console.log(allMortalityValues);
 
     // Bar Graph through chart.js
     barGraph.destroy()
@@ -177,13 +206,20 @@ function updateDash(state) {
       data: {
         labels: top5Labels,
         datasets: [{
-          label: state1[0].properties.NAME,
+          label: state1[0].properties.NAME + " Incidence",
           fill: true,
           backgroundColor: 'rgb(255, 99, 132, 0.2)',
           borderColor: 'rgb(255, 99, 132)',
           pointBackgroundColor: 'rgb(255, 99, 132)',
           pointBorderColor: "#fff", 
-          data: top5Values
+          data: top5Values},
+          {
+          label: state1[0].properties.NAME + " Mortality",
+          backgroundColor: 'rgb(54,162,235, 0.2)',
+          borderColor: 'rgb(54,162,235)',
+          pointBackgroundColor: 'rgb(54,162,235)',
+          pointBorderColor: "#fff",
+          data: top5MortalityValues
         }]
       },
       options: {
@@ -218,14 +254,14 @@ function updateDash(state) {
 
     // Bubble chart trace.
     var bubbleTrace = [{
-      //x: top5Labels, // what should this be??
-      y: allCancerValues,
+      x: allCancerValues,
+      y: allMortalityValues,
       mode: "markers",
       marker: {
-        size: allCancerValues,
-        sizeref: 80,
-        //color: top5Values,
-        //colorscale: 'Viridis',
+        size: allMortalityValues,
+        sizeref: 50,
+        color: allCancerValues,
+        colorscale: 'Viridis',
       },
       text: allCancerLabels,
     }];
@@ -233,9 +269,9 @@ function updateDash(state) {
     var bubbleLayout = {
       height: 600,
       title: `Cancers in ${state1[0].properties.NAME}`,
-      xaxis: { title: "<b>What goes here?</b>" },
+      xaxis: { title: "<b>Cancer Incidence</b>" },
       yaxis: {
-        title: "<b>Cancer Incidence</b>",
+        title: "<b>Cancer Mortality</b>",
       },
       margin: { // not sure if this is working....
         l: 50,

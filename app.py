@@ -68,14 +68,14 @@ def index3():
     mortality.drop()
     # Loading json file
     with open("Data/cancer_mortality_final.json") as file:
-        file_data = json.load(file)
+        file_data_mort = json.load(file)
     #insert data into collection
-    if isinstance(file_data, list):
-        mortality.insert_many(file_data)
+    if isinstance(file_data_mort, list):
+        mortality.insert_many(file_data_mort)
     else:
-        mortality.insert_one(file_data)
+        mortality.insert_one(file_data_mort)
 
-    mortality2 = mortality.find_one()
+    mortality2 = mortality.find()
     mortalityjson = json.loads(json_util.dumps(mortality2))
     # print(jsonify(cancerjson))
     return jsonify(mortalityjson)
