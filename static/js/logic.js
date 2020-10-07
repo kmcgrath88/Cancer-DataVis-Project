@@ -1,9 +1,17 @@
-var barGraph = new Chart({});
-var doughnutChart = new Chart({});
-var radarChart = new Chart({});
-var polarChart = new Chart({});
+// Creating empty canvases for chart.js graphs.
+var bar = document.getElementById('bar').getContext('2d');
+var barGraph = new Chart(bar, {});
 
-// Create a map object
+var doughnut = document.getElementById("doughnut");
+var doughnutChart = new Chart(doughnut, {});
+
+var radar = document.getElementById('radar').getContext('2d');
+var radarChart = new Chart(radar, {});
+
+var polar = document.getElementById("polar");
+var polarChart = new Chart(polar, {});
+
+// Create a map object.
 var myMap = L.map("map", {
   center: [37.09, -95.71],
   zoom: 4
@@ -107,7 +115,7 @@ function updateDash(state) {
 
       // Bar Graph through chart.js
       barGraph.destroy()
-      var bar = document.getElementById('bar').getContext('2d');
+     // var bar = document.getElementById('bar').getContext('2d');
       barGraph = new Chart(bar, {
         // The type of chart we want to create
         type: 'bar',
@@ -173,7 +181,7 @@ function updateDash(state) {
 
       // Doughnut graph for all cancers
       doughnutChart.destroy()
-      var doughnut = document.getElementById("doughnut");
+      //var doughnut = document.getElementById("doughnut");
       doughnutChart = new Chart(doughnut, {
         type: "doughnut",
         data: {
@@ -219,7 +227,7 @@ function updateDash(state) {
 
       //Radar Chart
       radarChart.destroy();
-      var radar = document.getElementById('radar').getContext('2d');
+      //var radar = document.getElementById('radar').getContext('2d');
       radarChart = new Chart(radar, {
         type: 'radar',
         data: {
@@ -264,7 +272,8 @@ function updateDash(state) {
 
       // Polar Area chart
       polarChart.destroy()
-      polarChart = new Chart(document.getElementById("polar"), {
+      //var polar = document.getElementById("polar")
+      polarChart = new Chart(polar,{
         type: 'polarArea',
         data: {
           labels: top5Labels,
