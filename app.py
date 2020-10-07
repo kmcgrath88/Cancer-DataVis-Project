@@ -58,6 +58,27 @@ def index2():
     return jsonify(cancerjson)
     # return render_template("index.html", all_cancers = all_cancers2)
 
+# Route to get mortality data
+@app.route("/cancer_mortality/", methods = ["GET"])
+@cross_origin()
+def index3():
+    
+    mortality = mongo.db.mortality
+    # Drops collection if available to remove duplicates
+    mortality.drop()
+    # Loading json file
+    with open("Data/cancer_mortality_final.json") as file:
+        file_data_mort = json.load(file)
+    #insert data into collection
+    if isinstance(file_data_mort, list):
+        mortality.insert_many(file_data_mort)
+    else:
+        mortality.insert_one(file_data_mort)
+
+    mortality2 = mortality.find()
+    mortalityjson = json.loads(json_util.dumps(mortality2))
+    # print(jsonify(cancerjson))
+    return jsonify(mortalityjson)
 
 #Creating app route "/scrape" and defining function  -- updating mongodb with scraped data; route for loading data in
 @app.route("/scrape")
