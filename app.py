@@ -30,7 +30,7 @@ def index():
     cancer_data = mongo.db.cancer_data.find_one()
     return render_template("index.html", cancer_data = cancer_data)
 
-# Route to get cancer incidence geojson data
+# Route to get cancer incidence geoJSON data
 @app.route("/cancer_dash/", methods = ["GET"])
 @cross_origin()
 def index2():
@@ -39,7 +39,7 @@ def index2():
     # Dropping collection if exists to remove duplicates
     all_cancers.drop()
 
-    # Loading geojson file
+    # Loading geoJSON file
     with open("Data/US_cancer_state.geojson") as file:
         file_data = geojson.load(file)
     # Inserting data into collection
@@ -51,7 +51,7 @@ def index2():
     # Finding cancer incidence data
     all_cancers2 = all_cancers.find_one()
 
-    # Parsing json string into python dictionary, returning string
+    # Parsing JSON string into python dictionary, returning string
     cancerjson = json.loads(json_util.dumps(all_cancers2))
     
     return jsonify(cancerjson)
@@ -65,7 +65,7 @@ def index3():
     # Dropping collection if exists to remove duplicates
     mortality.drop()
 
-    # Loading json file
+    # Loading JSON file
     with open("Data/cancer_mortality_final.json") as file:
         file_data_mort = json.load(file)
     # Inserting data into collection
@@ -77,7 +77,7 @@ def index3():
     # Finding cancer mortality data
     mortality2 = mortality.find()
 
-    # Parsing json string into python dictionary, returning string
+    # Parsing JSON string into python dictionary, returning string
     mortalityjson = json.loads(json_util.dumps(mortality2))
     return jsonify(mortalityjson)
 

@@ -38,8 +38,8 @@ def scrape():
     # Retrieving date and adding to dictionary
     news_data['date'] = browser.find_by_css('time').text
 
-    #Quit the browser after scraping
+    # Quit the browser after scraping
     browser.quit()
 
-    #Return results
+    # Return results
     return news_data

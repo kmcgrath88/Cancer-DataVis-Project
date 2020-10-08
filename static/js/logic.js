@@ -29,14 +29,14 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 // Initializing dashboard
 function init() {
-  // Running function on first ID to create initial dashboard.
+  // Running function on North Carolina to create initial dashboard.
   updateDash('North Carolina');
 };
 
 // Creating function to update the dashboard when a state is clicked on the map
 function updateDash(state) {
 
-  // Retrieving data from mongodb through flask and the app.py file
+  // Retrieving data from mongodb through python, flask, and the app.py file
   d3.request("http://127.0.0.1:5000/cancer_dash/").get(incomingData => {
     var incomingData = JSON.parse(incomingData.response);
 
@@ -44,7 +44,7 @@ function updateDash(state) {
       var mortalityData = JSON.parse(incomingMortalityData.response);
       console.log(mortalityData);
 
-      // Storing all cancer data to variable
+      // Storing all cancer data to a variable
       var allData = incomingData.features;
       console.log(allData);
 
@@ -119,6 +119,7 @@ function updateDash(state) {
       console.log(allMortalityValues);
 
       // Bar graph for top 5 cancers through Chart.js
+      // Destroy empty graph first
       barGraph.destroy();
       barGraph = new Chart(bar, {
         // The type of chart we want to create
@@ -315,7 +316,8 @@ function updateDash(state) {
         },
         text: allCancerLabels,
       }];
-      // Bubble layout
+
+      // Bubble chart layout
       var bubbleLayout = {
         height: 600,
         title: `<b>Cancer Incidence Vs Mortality in ${state1[0].properties.NAME}</b>`,
@@ -359,7 +361,7 @@ d3.request("http://127.0.0.1:5000/cancer_dash/").get(data => {
   var data = JSON.parse(data.response)
   // Creating a GeoJSON layer with the retrieved data
   L.geoJson(data, {
-    // Creating style that will adjust color of state based on all_cancer incidince
+    // Creating style that will adjust color of state based on all_cancer incidence
     style: function (feature) {
       return {
         color: "black",
