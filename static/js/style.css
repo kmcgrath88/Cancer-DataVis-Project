@@ -35,6 +35,12 @@ h1 {
   text-align: center;
 }
 
+/* Removing margins and padding */
+h2{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
 /* Legends */
 .legend {
   line-height: 18px;
@@ -52,13 +58,22 @@ h1 {
 /* Chart.js bar and radar charts */
 #bar,
 #radar{
-    margin-left: 1.5%;
+    /* margin-left: 2%; */
+    margin-bottom: 2%;
     background-color: white;
+    
 } 
 
 /* Chart.js doughnut and polar charts */
 #doughnut,
 #polar {
-  margin-right: 1.5%;
-    background-color: white;
+  /* margin-right: 2%; */
+  margin-bottom: 2%;
+  background-color: white;
 }
+
+/* Bubble Graph */
+#bubble {
+  margin-bottom: 2%;
+}
+
