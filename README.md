@@ -13,17 +13,20 @@ Thanks for checking out our team's repo! Our team retrieved data from multiple s
 
 <!--About the Project-->
 ## About the Project
- Datasets were transformed to one GeoJSON file using Pandas dataframes. Python and Flask were used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with dashboard on top cancer incidence per state. Flask was used to web scrape a current cancer news article from https://www.cancer.gov/news-events.
+ Datasets were transformed to GeoJSON and JSON files using Pandas dataframes. Python and Flask were used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with dashboard on top cancer incidence and mortality per state. Flask was used to web scrape a current cancer news article from cancer.gov, send scraped information to MongoDB, and render it on our html page.
 
 <!--Built With-->
 ### Built With
-This project was built using the following frameworks/libraries:<br>
+This project was built using the following frameworks/libraries/databases:<br>
 * Python 
 * Pandas
 * Flask
+    * Dependencies for Flask: bson, flask_pymongo, flask_cors
+* GeoJSON
+* JSON
+* Requests
 * MongoDB
 * JavaScript
-* GeoJSON
 * Geomapping with Leaflet.js
 * Chart.js
 
