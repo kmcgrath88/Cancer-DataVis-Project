@@ -83,10 +83,14 @@ function updateDash(state) {
       var top5Values = [];
       var allCancerLabels = [];
       var allCancerValues = [];
+      var test = []
 
       // Looping through top 5 cancers and adding labels and values to appropriate lists
       for (i = 0; i < top5.length; i++) {
         top5Labels[i] = top5[i][0].charAt(0).toUpperCase() + top5[i][0].slice(1)
+        // var nf = Intl.NumberFormat()
+        // top5Values[i] = nf.format(top5[i][1])
+        // console.log(top5Values)
         top5Values[i] = top5[i][1]
       };
 
@@ -394,7 +398,7 @@ d3.request("http://127.0.0.1:5000/cancer_dash/").get(data => {
           updateDash(event.target.feature.properties.NAME)
         }
       });
-      layer.bindPopup("<h1>" + feature.properties.NAME + "</h1> <hr> <h3> Cancer Incidence: " + feature.properties.all_cancers + "</h3>")
+      layer.bindPopup("<h1>" + feature.properties.NAME + "</h1> <hr> <h3> Cancer Incidence: " + feature.properties.all_cancers.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") + "</h3>")
     }
   }).addTo(myMap);
 
