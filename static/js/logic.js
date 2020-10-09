@@ -88,9 +88,6 @@ function updateDash(state) {
       // Looping through top 5 cancers and adding labels and values to appropriate lists
       for (i = 0; i < top5.length; i++) {
         top5Labels[i] = top5[i][0].charAt(0).toUpperCase() + top5[i][0].slice(1)
-        // var nf = Intl.NumberFormat()
-        // top5Values[i] = nf.format(top5[i][1])
-        // console.log(top5Values)
         top5Values[i] = top5[i][1]
       };
 
@@ -135,7 +132,14 @@ function updateDash(state) {
             label: 'Number of Cases',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
-            data: top5Values
+            data: top5Values,
+            bevelWidth: 2.5,
+            bevelHighlightColor: 'rgba(255, 255, 255, 0.75)',
+            bevelShadowColor: 'rgba(0, 0, 0, 0.5)',
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowBlur: 10,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
           }],
         },
         // Formatting xAxes, yAxes, title, legend, and layout
@@ -180,11 +184,24 @@ function updateDash(state) {
               top: 0,
               bottom: 20
             }
+          },
+          tooplips: {
+            bevelWidth: 2.5,
+            bevelHighlightColor: 'rgba(255, 255, 255, 0.75)',
+            bevelShadowColor: 'rgba(0, 0, 0, 0.5)',
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowBlur: 10,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
           }
         }
       }
       );
 
+      var effectColors = {
+        highlight: 'rgba(255, 255, 255, 0.75)',
+        shadow: 'rgba(0, 0, 0, 0.5)',	
+      };
       // Doughnut graph for all cancers through Chart.js
       doughnutChart.destroy();
       doughnutChart = new Chart(doughnut, {
@@ -195,8 +212,17 @@ function updateDash(state) {
             {
               data: allCancerValues,
               borderWidth: 1,
-            }
-          ],
+              borderColor: 'rgb(242, 242, 242)',
+              shadowOffsetX: 2.5,
+              shadowOffsetY: 2.5,
+              shadowBlur: 10,
+              shadowColor: effectColors.shadow,
+              bevelWidth: 1.6,
+              bevelHighlightColor: effectColors.highlight,
+              bevelShadowColor: effectColors.shadow,
+            },
+            
+          ]
         },
         // Formatting colorscheme, title, legend, and layout
         options: {
@@ -205,6 +231,14 @@ function updateDash(state) {
               scheme: 'tableau.HueCircle19',
             }
           },
+          tooltips: {
+            shadowOffsetX: 2.5,
+            shadowOffsetY: 2.5,
+            shadowBlur: 10,
+            shadowColor: effectColors.shadow,
+            bevelWidth: 1.6,
+            bevelHighlightColor: effectColors.highlight,
+            bevelShadowColor: effectColors.shadow},
           responsive: true,
           title: {
             display: true,

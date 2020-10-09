@@ -61,12 +61,12 @@ h2{
   float: left;
   margin-right: 8px;
   opacity: 0.7;
+  clear:both;
 }
 
 /* Chart.js bar and radar charts */
 #bar,
 #radar{
-    /* margin-left: 2%; */
     margin-bottom: 2%;
     background-color: white;
     
@@ -75,7 +75,6 @@ h2{
 /* Chart.js doughnut and polar charts */
 #doughnut,
 #polar {
-  /* margin-right: 2%; */
   margin-bottom: 2%;
   background-color: white;
 }
