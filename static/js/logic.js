@@ -11,6 +11,29 @@ var radarChart = new Chart(radar, {});
 var polar = document.getElementById("polar");
 var polarChart = new Chart(polar, {});
 
+//data for average cancer incidence values
+var cancerAvg = [{
+  "Bladder": 1414.13,
+  "Brain": 432.115,
+  "Breast": 4704.77,
+  "Cervix": 251.962,
+  "Colorectal": 2744,
+  "Esophagus": 335,
+  "Kidney": 1196.54,
+  "Leukemia": 910.269,
+  "Liver": 640.115,
+  "Lung": 4216.71,
+  "Non_Hodgkin_lymphoma": 1310.73,
+  "Oral_pharynx": 863.423,
+  "Ovary": 415.692,
+  "Pancreas": 934.635,
+  "Prostate": 3589.65,
+  "Melanoma": 1549.42,
+  "Stomach": 462.712,
+  "Thyroid": 961.596,
+  "Uterus": 1062.98
+}]
+
 // Create a map object
 var myMap = L.map("map", {
   center: [37.09, -95.71],
@@ -65,8 +88,8 @@ function updateDash(state) {
       // Getting mortality entry for state
       var stateMortality = mortalityData.filter(value =>
         value.State == state);
-      console.log(stateMortality[0]);
-      console.log(stateMortality[0].breast);
+      // console.log(stateMortality[0]);
+      // console.log(stateMortality[0].breast);
       var stateMortalityValue = stateMortality[0];
       console.log(stateMortalityValue);
 
@@ -105,16 +128,25 @@ function updateDash(state) {
       // Get mortality values that match the top5incidence labels
       var top5MortalityValues = [];
       for (i = 0; i < top5Labels.length; i++) {
-        var cancerSelect = top5Labels[i].toLowerCase()
+        var cancerSelect = top5Labels[i];
         console.log(cancerSelect);
         top5MortalityValues.push(stateMortalityValue[cancerSelect]);
       };
       console.log(top5MortalityValues);
 
+      //get avgCancer values that match top5incidence labels
+    console.log(cancerAvg);
+    var cancerAvgValues = cancerAvg[0];
+    var top5AvgCancers = [];
+    for (i=0; i < top5Labels.length; i++) {
+      var avgCancerSelect = top5Labels[i]
+      top5AvgCancers.push(cancerAvgValues[avgCancerSelect]);
+    }
+
       // Get mortality values that match allcancer labels
       var allMortalityValues = [];
       for (i = 0; i < allCancerLabels.length; i++) {
-        var allCancerSelect = allCancerLabels[i].toLowerCase()
+        var allCancerSelect = allCancerLabels[i];
         allMortalityValues.push(stateMortalityValue[allCancerSelect]);
       }
       console.log(allMortalityValues);
@@ -270,7 +302,7 @@ function updateDash(state) {
         data: {
           labels: top5Labels,
           datasets: [{
-            label: state1[0].properties.NAME + " Incidence",
+            label: state1[0].properties.NAME,
             fill: true,
             backgroundColor: 'rgb(255, 99, 132, 0.2)',
             borderColor: 'rgb(255, 99, 132)',
@@ -279,12 +311,12 @@ function updateDash(state) {
             data: top5Values
           },
           {
-            label: state1[0].properties.NAME + " Mortality",
+            label: "US Average",
             backgroundColor: 'rgb(54,162,235, 0.2)',
             borderColor: 'rgb(54,162,235)',
             pointBackgroundColor: 'rgb(54,162,235)',
             pointBorderColor: "#fff",
-            data: top5MortalityValues
+            data: top5AvgCancers
           }]
         },
         // Formatting title and layout
