@@ -308,7 +308,15 @@ function updateDash(state) {
             borderColor: 'rgb(255, 99, 132)',
             pointBackgroundColor: 'rgb(255, 99, 132)',
             pointBorderColor: "#fff",
-            data: top5Values
+            data: top5Values,
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowBlur: 10,
+            shadowColor: effectColors.shadow,
+            pointRadius: 4,
+            pointBevelWidth: 2,
+            pointBevelHighlightColor: effectColors.highlight,
+            pointBevelShadowColor: effectColors.shadow,
           },
           {
             label: "US Average",
@@ -316,14 +324,22 @@ function updateDash(state) {
             borderColor: 'rgb(54,162,235)',
             pointBackgroundColor: 'rgb(54,162,235)',
             pointBorderColor: "#fff",
-            data: top5AvgCancers
+            data: top5AvgCancers,
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowBlur: 10,
+            shadowColor: effectColors.shadow,
+            pointRadius: 4,
+            pointBevelWidth: 2,
+            pointBevelHighlightColor: effectColors.highlight,
+            pointBevelShadowColor: effectColors.shadow
           }]
         },
         // Formatting title and layout
         options: {
           title: {
             display: true,
-            text: `Incidence Vs Mortality In ${state1[0].properties.NAME}`,
+            text: `Incidence In ${state1[0].properties.NAME} Vs US Average`,
             fontSize: 14,
             fontStyle: "bold",
             padding: 20
@@ -335,6 +351,20 @@ function updateDash(state) {
               top: 0,
               bottom: 20
             }
+          },
+          scale: {
+            ticks: {
+              beginAtZero: true,
+              showLabelBackdrop: false              
+            }},
+          tooltips: {
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowBlur: 10,
+            shadowColor: effectColors.shadow,
+            bevelWidth: 2,
+            bevelHighlightColor: effectColors.highlight,
+            bevelShadowColor: effectColors.shadow
           }
         }
       });
@@ -347,8 +377,15 @@ function updateDash(state) {
           labels: top5Labels,
           datasets: [
             {
-              backgroundColor: ["rgb(62,149,205, .7)", "rgb(142,94,162, .7)", "rgb(60,186,159, .7)", "rgb(232,195,185, .7)", "rgb(196,88,80, .7)"],
-              data: top5Values
+              backgroundColor: ["rgb(62,149,205, .65)", "rgb(142,94,162, .65)", "rgb(60,186,159, .65)", "rgb(232,195,185, .65)", "rgb(196,88,80, .65)"],
+              data: top5Values,
+              shadowOffsetX: 3,
+              shadowOffsetY: 3,
+              shadowBlur: 10,
+              shadowColor: effectColors.shadow,
+              bevelWidth: 2,
+              bevelHighlightColor: effectColors.highlight,
+              bevelShadowColor: effectColors.shadow
             }
           ]
         },
@@ -369,7 +406,21 @@ function updateDash(state) {
               bottom: 20
             }
           },
-          startAngle: -20
+          startAngle: -20,
+          scale: {
+            ticks: {
+              beginAtZero: true,
+              showLabelBackdrop: false              
+            }},
+          tooltips: {
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowBlur: 10,
+            shadowColor: effectColors.shadow,
+            bevelWidth: 2,
+            bevelHighlightColor: effectColors.highlight,
+            bevelShadowColor: effectColors.shadow
+          }
         }
       });
 
