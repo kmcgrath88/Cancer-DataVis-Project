@@ -82,7 +82,7 @@ def index3():
     return jsonify(mortalityjson)
 
 # Creating app route "/scrape" and defining function 
-# Updating mongodb with scraped data - route for loading data in
+# Updating MongoDB with scraped data - route for loading data in
 @app.route("/scrape")
 @cross_origin()
 def scraper():

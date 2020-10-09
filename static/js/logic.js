@@ -11,7 +11,7 @@ var radarChart = new Chart(radar, {});
 var polar = document.getElementById("polar");
 var polarChart = new Chart(polar, {});
 
-//data for average cancer incidence values
+// Data for average cancer incidence values
 var cancerAvg = [{
   "Bladder": 1414.13,
   "Brain": 432.115,
@@ -59,7 +59,7 @@ function init() {
 // Creating function to update the dashboard when a state is clicked on the map
 function updateDash(state) {
 
-  // Retrieving data from mongodb through python, flask, and the app.py file
+  // Retrieving data from MongoDB through python, flask, and the app.py file
   d3.request("http://127.0.0.1:5000/cancer_dash/").get(incomingData => {
     var incomingData = JSON.parse(incomingData.response);
 
@@ -106,7 +106,6 @@ function updateDash(state) {
       var top5Values = [];
       var allCancerLabels = [];
       var allCancerValues = [];
-      var test = []
 
       // Looping through top 5 cancers and adding labels and values to appropriate lists
       for (i = 0; i < top5.length; i++) {
@@ -134,14 +133,14 @@ function updateDash(state) {
       };
       console.log(top5MortalityValues);
 
-      //get avgCancer values that match top5incidence labels
-    console.log(cancerAvg);
-    var cancerAvgValues = cancerAvg[0];
-    var top5AvgCancers = [];
-    for (i=0; i < top5Labels.length; i++) {
-      var avgCancerSelect = top5Labels[i]
-      top5AvgCancers.push(cancerAvgValues[avgCancerSelect]);
-    }
+      // Get avgCancer values that match top5incidence labels
+      console.log(cancerAvg);
+      var cancerAvgValues = cancerAvg[0];
+      var top5AvgCancers = [];
+      for (i = 0; i < top5Labels.length; i++) {
+        var avgCancerSelect = top5Labels[i]
+        top5AvgCancers.push(cancerAvgValues[avgCancerSelect]);
+      }
 
       // Get mortality values that match allcancer labels
       var allMortalityValues = [];
@@ -197,7 +196,6 @@ function updateDash(state) {
                 maxTicksLimit: 7,
               }
             }]
-
           },
           title: {
             display: true,
@@ -230,11 +228,14 @@ function updateDash(state) {
       }
       );
 
+      // Graph effects for doughnut, radar, and polar charts
       var effectColors = {
         highlight: 'rgba(255, 255, 255, 0.75)',
-        shadow: 'rgba(0, 0, 0, 0.5)',	
+        shadow: 'rgba(0, 0, 0, 0.5)',
       };
+
       // Doughnut graph for all cancers through Chart.js
+      // Destroy empty graph first
       doughnutChart.destroy();
       doughnutChart = new Chart(doughnut, {
         type: "doughnut",
@@ -253,7 +254,7 @@ function updateDash(state) {
               bevelHighlightColor: effectColors.highlight,
               bevelShadowColor: effectColors.shadow,
             },
-            
+
           ]
         },
         // Formatting colorscheme, title, legend, and layout
@@ -270,7 +271,8 @@ function updateDash(state) {
             shadowColor: effectColors.shadow,
             bevelWidth: 1.6,
             bevelHighlightColor: effectColors.highlight,
-            bevelShadowColor: effectColors.shadow},
+            bevelShadowColor: effectColors.shadow
+          },
           responsive: true,
           title: {
             display: true,
@@ -295,7 +297,8 @@ function updateDash(state) {
         }
       });
 
-      //Radar Chart for state incidence vs mortality for top 5 cancers through Chart.js
+      // Radar chart for state incidence vs US average for top 5 cancers through Chart.js
+      // Destroy empty graph first
       radarChart.destroy();
       radarChart = new Chart(radar, {
         type: 'radar',
@@ -355,8 +358,9 @@ function updateDash(state) {
           scale: {
             ticks: {
               beginAtZero: true,
-              showLabelBackdrop: false              
-            }},
+              showLabelBackdrop: false
+            }
+          },
           tooltips: {
             shadowOffsetX: 3,
             shadowOffsetY: 3,
@@ -370,6 +374,7 @@ function updateDash(state) {
       });
 
       // Polar area chart for top 5 cancers per state through Chart.js
+      // Destroy empty graph first
       polarChart.destroy()
       polarChart = new Chart(polar, {
         type: 'polarArea',
@@ -410,8 +415,9 @@ function updateDash(state) {
           scale: {
             ticks: {
               beginAtZero: true,
-              showLabelBackdrop: false              
-            }},
+              showLabelBackdrop: false
+            }
+          },
           tooltips: {
             shadowOffsetX: 3,
             shadowOffsetY: 3,
@@ -442,19 +448,21 @@ function updateDash(state) {
       var bubbleLayout = {
         height: 600,
         title: `<b>Cancer Incidence Vs Mortality in ${state1[0].properties.NAME}</b>`,
-        titlefont:{
+        titlefont: {
           color: 'rgb(110, 110, 110)',
         },
-        xaxis: { 
+        xaxis: {
           title: "<b>Cancer Incidence</b>",
           titlefont: {
-            color: 'rgb(110, 110, 110)'},
+            color: 'rgb(110, 110, 110)'
+          },
           zerolinecolor: 'rgb(110, 110, 110)',
-      },
+        },
         yaxis: {
           title: "<b>Cancer Mortality</b>",
           titlefont: {
-            color: 'rgb(110, 110, 110)'},
+            color: 'rgb(110, 110, 110)'
+          },
           zerolinecolor: 'rgb(110, 110, 110)',
         },
       };
