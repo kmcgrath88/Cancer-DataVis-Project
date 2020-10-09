@@ -2,18 +2,18 @@
 
 Thanks for checking out our team's repo! Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. By downloading our repo and running app.py through flask, you can view an interactive US map with a dashboard of several visualizations below. (Note: You will need your own API key from [MapBox](https://www.mapbox.com/) to successfully generate the US map.) In addition, you can web scrape a current news article to learn more about research being conducted in the fight against cancer. <br>
 
-#### Screenshots Of Our Final Product:
+### Screenshots Of Our Final Product:
 
-Heading And Web Scraping Portion:<br>
+<b>Heading And Web Scraping Portion:</b><br>
 ![alt text](images/title.webscrape.png) <br>
 
-Interactive US Map:<br>
+<b>Interactive US Map:</b><br>
 ![alt text](images/map.png)<br>
 
-Interactive Chart.js Graphs:<br>
+<b>Interactive Chart.js Graphs:</b><br>
 ![alt text](images/charts.png)<br>
 
-Interactive Plotly Bubble Chart:<br>
+<b>Interactive Plotly Bubble Chart:</b><br>
 ![alt text](images/bubble.png)<br>
 
 <!-- TABLE OF CONTENTS -->
