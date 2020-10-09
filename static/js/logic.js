@@ -359,9 +359,20 @@ function updateDash(state) {
       var bubbleLayout = {
         height: 600,
         title: `<b>Cancer Incidence Vs Mortality in ${state1[0].properties.NAME}</b>`,
-        xaxis: { title: "<b>Cancer Incidence</b>" },
+        titlefont:{
+          color: 'rgb(110, 110, 110)',
+        },
+        xaxis: { 
+          title: "<b>Cancer Incidence</b>",
+          titlefont: {
+            color: 'rgb(110, 110, 110)'},
+          zerolinecolor: 'rgb(110, 110, 110)',
+      },
         yaxis: {
           title: "<b>Cancer Mortality</b>",
+          titlefont: {
+            color: 'rgb(110, 110, 110)'},
+          zerolinecolor: 'rgb(110, 110, 110)',
         },
       };
 
