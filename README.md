@@ -2,23 +2,31 @@
 
 Thanks for checking out our team's repo! Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. By downloading our repo and running app.py through flask, you can view an interactive US map with a dashboard of several visualizations below. (Note: You will need your own API key from [MapBox](https://www.mapbox.com/) to successfully generate the US map.) In addition, you can web scrape a current news article to learn more about research being conducted in the fight against cancer. <br>
 
-Here are some screenshots of our final product:<br>
+#### Screenshots Of Our Final Product:
 
 Heading And Web Scraping Portion:<br>
-![alt text](images/title.webscrape.png)
+![alt text](images/title.webscrape.png) <br>
 
+Interactive US Map:<br>
+![alt text](images/map.png)<br>
+
+Interactive Chart.js Graphs:<br>
+![alt text](images/charts.png)<br>
+
+Interactive Plotly Bubble Chart:<br>
+![alt text](images/bubble.png)<br>
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents
+## Table Of Contents
 
-* [About the Project](#about-the-project)
+* [About The Project](#about-the-project)
   * [Built With](#built-with)
 * [Sources](#sources)
 * [Project Instructions](#project-instructions)
 * [Team Members](#team-members)
 
 <!--About the Project-->
-## About the Project
+## About The Project
  Datasets were transformed to GeoJSON and JSON files using Pandas dataframes. Python and Flask were used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with a dashboard on top cancer incidence and mortality per state. Flask was used to web scrape a current cancer news article from cancer.gov, send scraped information to MongoDB, and render it on our html page.
 
 <!--Built With-->
