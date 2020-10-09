@@ -19,7 +19,7 @@ CORS(app, resources={
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['CORS_ORIGINS'] = '*'
 
-# Use flask_pymongo to set up mongo connection
+# Use flask_pymongo to set up local MongoDB connection
 app.config["MONGO_URI"] = "mongodb://localhost:27017/cancer_app" 
 mongo = PyMongo(app)
 
