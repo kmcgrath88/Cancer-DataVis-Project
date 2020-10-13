@@ -27,7 +27,7 @@ Thanks for checking out our team's repo! Our team retrieved data from multiple s
 
 <!--About the Project-->
 ## About The Project
- Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. Datasets were transformed to GeoJSON and JSON files using Pandas dataframes. Python and Flask were used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with a dashboard on top cancer incidence and mortality per state. Flask was used to web scrape a current cancer news article from cancer.gov, send scraped information to MongoDB, and render it on our html page.
+ Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. Datasets were transformed to GeoJSON and JSON files using Pandas dataframes. A RESTful API with Python and Flask was used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with a dashboard on top cancer incidence and mortality per state. Flask was used to web scrape a current cancer news article from cancer.gov, send scraped information to MongoDB, and render it on our html page.
 
 <!--Built With-->
 ### Built With
