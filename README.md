@@ -2,6 +2,8 @@
 
 Thanks for checking out our team's repo! Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. By downloading our repo and running app.py through flask, you can view an interactive US map with a dashboard of several visualizations below. (Note: You will need your own API key from [MapBox](https://www.mapbox.com/) to successfully generate the US map.) By clicking a new state on the map, the interactive dashboard updates with that state's cancer incidence and mortality data. In addition, you can click the button at the top of the page to web scrape a current news article to learn more about research being conducted in the fight against cancer. <br>
 
+Live site through Heroku and MongoDB Atlas: https://cancer-app-1.herokuapp.com/. <br>
+
 ### Screenshots Of Our Final Product:
 
 <b>Heading And Web Scraping Portion:</b><br>
