@@ -29,7 +29,7 @@ Live site through Heroku and MongoDB Atlas: https://cancer-app-1.herokuapp.com/.
 
 <!--About the Project-->
 ## About The Project
- Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. Datasets were transformed to GeoJSON and JSON files using Pandas dataframes. A RESTful API with Python and Flask was used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with a dashboard on top cancer incidence and mortality per state. Flask was used to web scrape a current cancer news article from cancer.gov, send scraped information to MongoDB, and render it on our html page.
+ Our team retrieved data from multiple sources to observe cancer incidence and mortality across the United States in 2016. Datasets were transformed to GeoJSON and JSON files using Pandas dataframes. A RESTful API with Python and Flask was used to load data into MongoDB. JavaScript, D3.js, Geomapping with Leaflet.js, and Chart.js were utilized to generate an interactive United States map with a dashboard on top cancer incidence and mortality per state. Flask and Beautiful Soup were used to web scrape a current cancer news article from cancer.gov, send scraped information to MongoDB, and render it on our html page.
 
 <!--Built With-->
 ### Built With
@@ -38,6 +38,7 @@ This project was built using the following frameworks/libraries/databases:<br>
 * Pandas
 * Flask
     * Dependencies for Flask: bson, flask_pymongo, flask_cors
+* Beautiful Soup
 * GeoJSON
 * JSON
 * Requests
